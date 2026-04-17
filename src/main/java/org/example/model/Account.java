@@ -22,7 +22,7 @@ public class Account {
     }
 
     public void setAcctNo(String AcctNo) {
-        this.acctNo = acctNo;
+        this.acctNo = AcctNo;
     }
 
     public String getName() {
@@ -65,6 +65,5 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
-
 }
+

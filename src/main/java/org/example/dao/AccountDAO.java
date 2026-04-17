@@ -9,7 +9,7 @@ public interface AccountDAO{
 
     Account getAccount(String acctNo) throws SQLException;
 
-    void UpdateBalance (int id,double balance) throws SQLException;
+    void UpdateBalance (String acctNo,double balance) throws SQLException;
 
 
 }

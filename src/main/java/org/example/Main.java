@@ -15,10 +15,12 @@ public  class Main {
 
             System.out.println("\n1 . Create Account");
             System.out.println("2 . View Account");
-            System.out.println("3 . Update Balance");
-            System.out.println("4 . Exit");
-
-                    System.out.println("6 .Enter Choice");
+            System.out.println("3 . Deposit");
+            System.out.println("4 . Withdraw");
+            System.out.println("5 .Transfer ");
+            System.out.println("6 . Transaction History");
+            System.out.println("7 . Exit");
+                    System.out.println(" .Enter Choice");
             int choice = sc.nextInt();
             sc.nextLine();
             switch (choice) {
@@ -42,6 +44,8 @@ public  class Main {
 
                     System.out.println("Balance:");
                     acc.setBalance(sc.nextDouble());
+                    sc.nextLine();
+
 
                     service.CreateAccount(acc);
                     break;
@@ -62,17 +66,34 @@ public  class Main {
 
                 case 3:
                     System.out.println("Enter Account No: ");
-                    String accNo = sc.nextLine();
-                    Account accData = service.getAccount(accNo);
-                    if(accData != null) {
-                        System.out.println("Enter New Balance:");
-                                        double newBalance = sc.nextDouble();
-                        service.UpdateBalance(accData.getId(),newBalance);
-                    }else {
-                        System.out.println(" Account Not Found ");
-                    }
+                    String dAcc = sc.next();
+                    System.out.println("Enter Amount");
+                    double dAmt = sc.nextDouble();
+                    service.deposit( String.valueOf(dAcc), dAmt);
                     break;
                 case 4:
+                    System.out.println("Enter Account No: ");
+                    String wAcc = sc.next();
+                    System.out.println("Enter Amount");
+                    double wAmt = sc.nextDouble();
+                    service.withdraw(wAcc, wAmt);
+                    break;
+                case 5 :
+                    System.out.println("From Account : ");
+                    String fAcc = sc.next();
+                    System.out.println("To Account");
+                    String tAcc = sc.next();
+                    System.out.println("Amount");
+                    double tAmt = sc.nextDouble();
+                    service.transfer(fAcc,tAcc, tAmt);
+                    break;
+                case 6 :
+
+                    System.out.println("Enter  Account No : ");
+                    String hAcc = sc.next();
+                    service.transactionHistory(hAcc);
+                    break;
+                case 7:
                     System.out.println("Exit ");
                     System.exit(0);
 

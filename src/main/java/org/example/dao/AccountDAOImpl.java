@@ -30,15 +30,15 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public void UpdateBalance(int id, double balance) throws SQLException {
+    public void UpdateBalance(String acctNo, double balance) throws SQLException {
 
-        String sql = "update account set balance = ? where id = ?";
+        String sql = "update account set balance = ? where acctNO = ?";
 
         Connection connection = DbConnection.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         preparedStatement.setDouble(1, balance);
-        preparedStatement.setInt(2, id);
+        preparedStatement.setString(2, acctNo);
 
         int count = preparedStatement.executeUpdate();
         System.out.println("Updated Rows: " + count);
